@@ -30,6 +30,21 @@ System.register(['angular2/http', 'rxjs/add/operator/map', 'angular2/core'], fun
                 getUsers() {
                     return this._http.get(this._url).map(res => res.json());
                 }
+                getUser(id) {
+                    return this._http.get(`${this._url}/${id}`).map(res => res.json());
+                }
+                createUser(user) {
+                    return this._http.post(this._url, JSON.stringify(user))
+                        .map(res => res.json());
+                }
+                updateUser(user, id) {
+                    return this._http.put(`${this._url}/${id}`, JSON.stringify(user))
+                        .map(res => res.json());
+                }
+                deleteUser(id) {
+                    return this._http.delete(`${this._url}/${id}`)
+                        .map(res => res.json());
+                }
             };
             UsersService = __decorate([
                 core_1.Injectable(), 

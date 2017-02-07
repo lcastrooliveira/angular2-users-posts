@@ -16,4 +16,23 @@ export class UsersService {
         return this._http.get(this._url).map(res => res.json());
     }
 
+    getUser(id: number) {
+        return this._http.get(`${this._url}/${id}`).map(res => res.json());
+    }
+
+    createUser(user : User) {
+        return this._http.post(this._url, JSON.stringify(user))
+        .map(res => res.json());
+    }
+
+    updateUser(user : User, id : number) {
+        return this._http.put(`${this._url}/${id}`, JSON.stringify(user))
+        .map(res => res.json());
+    }
+
+    deleteUser(id: number) {
+        return this._http.delete(`${this._url}/${id}`)
+        .map(res => res.json());
+    }
+
 }

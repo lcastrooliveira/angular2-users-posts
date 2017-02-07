@@ -1,4 +1,7 @@
 <h1>Users</h1>
+<a class="btn btn-primary" [routerLink]="['NewUser']" role="button">Add User</a>
+<br/>
+<br/>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -12,8 +15,8 @@
         <tr *ngFor="#user of users">
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
-            <td><i class="glyphicon glyphicon-edit"></i></td>
-            <td><i class="glyphicon glyphicon-remove"></i></td>
+            <td><a [routerLink]="['User', {id: user.id}]"><i class="glyphicon glyphicon-edit"></i></a></td>
+            <td><a (click)='deleteUser(user)'><i class="glyphicon glyphicon-remove"></i></a></td>
         </tr>
     </tbody>
 </table>

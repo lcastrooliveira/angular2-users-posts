@@ -1,4 +1,4 @@
-System.register(['angular2/core', './navigation/navbar.component', './users/users.component', './posts/posts.component', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', './navigation/navbar.component', './users/users.component', './users/user_form.component', './posts/posts.component', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './navigation/navbar.component', './users/user
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, navbar_component_1, users_component_1, posts_component_1, router_1;
+    var core_1, navbar_component_1, users_component_1, user_form_component_1, posts_component_1, router_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', './navigation/navbar.component', './users/user
             },
             function (users_component_1_1) {
                 users_component_1 = users_component_1_1;
+            },
+            function (user_form_component_1_1) {
+                user_form_component_1 = user_form_component_1_1;
             },
             function (posts_component_1_1) {
                 posts_component_1 = posts_component_1_1;
@@ -35,6 +38,9 @@ System.register(['angular2/core', './navigation/navbar.component', './users/user
             AppComponent = __decorate([
                 router_1.RouteConfig([
                     { path: '/users', name: 'Users', component: users_component_1.UsersComponent, useAsDefault: true },
+                    { path: '/users/:id', name: 'User', component: user_form_component_1.UserFormComponent },
+                    { path: '/users/new', name: 'NewUser', component: user_form_component_1.UserFormComponent },
+                    { path: '/users/delete/:id', name: 'DeleteUser', component: users_component_1.UsersComponent },
                     { path: '/posts', name: 'Posts', component: posts_component_1.PostsComponent },
                     { path: '/*other', name: 'Other', redirectTo: ['Users'] }
                 ]),
